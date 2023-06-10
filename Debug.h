@@ -1,3 +1,5 @@
+#define debug_h
+#ifndef debug_h
 
 #if DEBUG
   #include <synth.h>
@@ -116,4 +118,5 @@
     //For reference: At a sample rate of 20kHz one sample corresponds to 50µs.
   */
 
+#endif
 #endif
