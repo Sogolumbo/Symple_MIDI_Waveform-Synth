@@ -4,6 +4,9 @@
 #if DEBUG
   #include <synth.h>
 
+  unsigned long packetCounter = 0;
+  unsigned long package_time_start = 0;
+
   unsigned char lastAmp = 0;
   byte waveformMixTextIndex = 0;
 

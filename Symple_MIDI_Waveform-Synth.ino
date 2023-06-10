@@ -60,12 +60,28 @@ void setup() {
 
 void loop() {
   MIDI.read();
-  synth::updateEnvelope(0);
-  synth::updateEnvelope(1);
-  synth::updateEnvelope(2);
-  synth::updateEnvelope(3);
+  sendPacket();
 
-  #if DEBUG  
+  synth::updateEnvelope(0);
+  sendPacket();
+  
+  synth::updateEnvelope(1);
+  sendPacket();
+  
+  synth::updateEnvelope(2);
+  sendPacket();
+  
+  synth::updateEnvelope(3);
+  sendPacket();
+
+  #if DEBUG 
+    packetCounter += 5;
+    if(packetCounter > 12000){
+      unsigned long package_duration = millis() - package_time_start;
+      Serial.println("sample_rate: " + String(float(packetCounter)*1000/package_duration));
+      package_time_start = millis();
+      packetCounter = 0;
+    }
     //notes.debug();
   #endif
 }
