@@ -1,5 +1,5 @@
-#define debug_h
 #ifndef debug_h
+#define debug_h
 
 #if DEBUG
   #include <synth.h>
